@@ -7,6 +7,7 @@ import { ConfigurationProvider } from "../providers/ConfigurationProvider";
 import { TerminalProvider } from "../providers/TerminalProvider";
 import { JestTestRunner } from "./JestTestRunner";
 import { MochaTestRunner } from "./MochaTestRunner";
+import { LabTestRunner } from "./LabTestRunner";
 
 const terminalProvider = new TerminalProvider();
 
@@ -48,6 +49,13 @@ export async function getTestRunner(
     configurationProvider,
     terminalProvider
   });
+  const labTestRunner = new LabTestRunner({
+    configurationProvider,
+    terminalProvider
+  });
 
-  return getAvailableTestRunner([jestTestRunner, mochaTestRunner], rootPath);
+  return getAvailableTestRunner(
+    [labTestRunner, mochaTestRunner, jestTestRunner],
+    rootPath
+  );
 }

@@ -24,6 +24,7 @@ This extension works currently with :
 
 * Mocha
 * Jest
+* Lab (Testing)
 
 ## Need help?
 
