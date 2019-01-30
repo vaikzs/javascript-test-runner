@@ -52,7 +52,13 @@ export class MochaTestRunner implements ITestRunnerInterface {
       .environmentVariables;
 
     debug.startDebugging(rootPath, {
-      args: [fileName, "--grep", testName, ...additionalArguments.split(" ")],
+      args: [
+        fileName,
+        "--grep",
+        testName,
+        "--no-timeout",
+        ...additionalArguments.split(" ")
+      ],
       console: "integratedTerminal",
       env: environmentVariables,
       name: "Debug Test",
